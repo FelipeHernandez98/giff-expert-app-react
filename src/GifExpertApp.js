@@ -12,7 +12,7 @@ export const GiffExpertApp = () => {
     return(
         <>
             <h2>GiffExpertApp</h2>
-            <AddCategory />
+            <AddCategory setCategories={ setCategories }/>
             <hr/>
 
             <ol>
