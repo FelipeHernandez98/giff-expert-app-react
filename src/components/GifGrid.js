@@ -1,6 +1,14 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
+import { GifGridItem } from './GifGridItem';
 
 export const GifGrid = ({category}) => {
+
+    const  [images , setImages]  = useState([])
+    // Solo se dispara cuando el componente es renderizado por 1era vez
+    useEffect(()=>{
+        getGifs();
+    }, [])
+    //
 
     const getGifs = async() =>{
         
@@ -16,13 +24,22 @@ export const GifGrid = ({category}) => {
             }
         })
         console.log(gifs);
-    }
-
-    getGifs();
+        setImages(gifs);
+    } 
 
     return (
         <>
             <h3>{ category }</h3>
+            <ol>
+                {
+                    images.map( img =>(
+                        <GifGridItem 
+                            key={img.id}
+                            {...img}
+                        />
+                    ))
+                }
+            </ol>
         </>
     )
 }
