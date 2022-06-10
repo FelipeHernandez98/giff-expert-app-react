@@ -9,6 +9,8 @@ export const AddCategory = ( {setCategories} ) => {
     const handleInputChange = (e)=>{
         //Viene el evento onChage y se modifica con el hook 
         setInputValue(e.target.value);
+
+        console.log('Handle input change llamado')
     }
    
 
@@ -23,6 +25,7 @@ export const AddCategory = ( {setCategories} ) => {
 
     return (
         <form onSubmit={ handleSubmit }>
+            <p>{ inputValue }</p>
             <input 
                 type="text"
                 value={ inputValue }
